@@ -1,15 +1,18 @@
 {
-  "name": "pubsub-of-the-week",
+  "name": "Crypto",
   "version": "1.0.0",
-  "description": "Publix Weekly Ad Scraper. Returns the sub on sale this week.",
-  "main": "app.js",
+  "description": "Crypto Currency Daily Value webscrapper.",
+  "main": "server.js",
   "dependencies": {
     "request": "^2.81.0",
     "cheerio": "^1.0.0-rc.2",
-    "moment": "^2.18.1"
+    "moment": "^2.18.1",
+    "path": "*",
+    "express": "*",
+    "ejs": "~1.0.0"
   },
   "devDependencies": {},
   "scripts": {},
-  "author": "Taylor Walker",
-  "license": "MIT"
+  "author": "Victoria",
+  "license": "WAT?"
 }
