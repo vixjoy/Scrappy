@@ -4,12 +4,13 @@
   "description": "Crypto Currency Daily Value webscrapper.",
   "main": "server.js",
   "dependencies": {
-    "request": "^2.81.0",
     "cheerio": "^1.0.0-rc.2",
+    "cryptocompare": "^0.2.0",
+    "ejs": "~1.0.0",
+    "express": "*",
     "moment": "^2.18.1",
     "path": "*",
-    "express": "*",
-    "ejs": "~1.0.0"
+    "request": "^2.81.0"
   },
   "devDependencies": {},
   "scripts": {},

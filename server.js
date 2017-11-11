@@ -22,11 +22,11 @@ request(url, (error, response, body) => {
 
 
 
-
 require('./router/main')(app);
 app.set('views',__dirname + '/views');
 app.set('view engine', 'ejs');
 app.engine('html', ejs.renderFile);
+
 
 
 var server     =    app.listen(3000,function(){
