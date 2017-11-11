@@ -38,5 +38,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 * Thanks to Taylor J Walker for making a cool webscrapper I could work from
-* Thanks to Publix for giving me the inspiration for this project by their delicious subs and enticing deals!
+* Thanks to Publix for giving Taylor the inspiration for this project by their delicious subs and enticing deals!
 # Scrappy
