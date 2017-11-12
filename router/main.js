@@ -37,26 +37,29 @@ module.exports = function(app)
 
 
 
-  cc.histoDay('BTC', 'USD')
-  .then(data => {
-    for(var i = 0; i < data.length; i++){
-      BTC[i] = {value: data[i].close, date: new Date(data[i].time*1000)}
+  // cc.histoDay('BTC', 'USD')
+  // .then(data => {
+  //   var value = [];
+  //   var date =[] ;
+  //   for(var i = 0; i < data.length; i++){
+  //     value[i] = data[i].close
+  //     date[i] = new Date(data[i].time*1000)}
+  //     //console.log(BTC[i]);
+  //     // -> [ { time: 1485388800,
+  //     //        close: 915.65,
+  //     //        high: 917.71,
+  //     //        low: 893.81,
+  //     //        open: 893.97,
+  //     //        volumefrom: 35494.93,
+  //     //        volumeto: 32333344.2 },
+  //     //        ... ]
+    
+  //   //console.log(BTC.length);
+  //   makeGraph(value, date);
 
-      console.log(BTC[i]);
-      // -> [ { time: 1485388800,
-      //        close: 915.65,
-      //        high: 917.71,
-      //        low: 893.81,
-      //        open: 893.97,
-      //        volumefrom: 35494.93,
-      //        volumeto: 32333344.2 },
-      //        ... ]
-    }
-    console.log(BTC.length);
-
-  })
-  .catch(console.error)
-  //graph creation
+  // })
+  // .catch(console.error)
+  // //graph creation
 
 
 
@@ -68,7 +71,7 @@ module.exports = function(app)
     );
   });
 
-  app.get('/whatif', function(req,res){
+  app.get('/whatifBTC', function(req,res){
     var investment = req.query.amount;//req.param("amount");//
     var date = new Date(req.query.date +"T18:09:16Z");
     var initVal;
@@ -91,4 +94,29 @@ module.exports = function(app)
       console.log(err)
     });
   });
+
+
+    app.get('/whatifARK', function(req,res){
+    var investment = req.query.amount;//req.param("amount");//
+    var date = new Date(req.query.date+"T18:09:16Z");
+    var initVal;
+    var curVal;
+    cc.priceHistorical('ARK', ['USD'], date) // -> { ARK: { USD: 997, EUR: 948.17 } }
+    .then(prices => {
+      //console.log(prices.USD)
+      initVal = prices.USD;
+      console.log(initVal);
+      return cc.priceHistorical('ARK', ['USD'], new Date())
+    })
+    .then(prices => {
+      // console.log(prices)
+      curVal = prices.USD;
+      console.log(curVal);
+      
+      res.status(200).send(String((investment*curVal)/initVal));
+    }, err => {
+      console.log("err happened")
+      console.log(err)
+    });
+  })
 }
