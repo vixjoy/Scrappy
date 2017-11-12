@@ -129,10 +129,52 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       </div>
     </div>
   </div>
+
+
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-container">
+      <h3><b>ETHEREUM</b></h3>
+    </div>
+
+      <div class="w3-container whatif" >
+      <h3>What if you invested </h3>
+      <input  type="number" step='0.01' id="amountETH" class="b" >
+      <h3> on the date </h3>
+      <input type="date" id="startETH" class="b">
+      <h3>you would have $ </h3>
+      <div class="w3-row">
+        <p></p>
+      </div>
+      <button onclick="whatifETH()">GO!</button>
+      <div id="resultsETH">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-container">
+      <h3><b>DOGECOIN</b></h3>
+    </div>
+
+      <div class="w3-container whatif" >
+      <h3>What if you invested </h3>
+      <input  type="number" step='0.01' id="amountDOGE" class="b" >
+      <h3> on the date </h3>
+      <input type="date" id="startDOGE" class="b">
+      <h3>you would have $ </h3>
+      <div class="w3-row">
+        <p></p>
+      </div>
+      <button onclick="whatifDOGE()">GO!</button>
+      <div id="resultsDOGE">
+      </div>
+    </div>
+  </div>
   <!-- END BLOG ENTRIES -->
 
   <!-- Blog entry -->
-  <div class="w3-card-4 w3-margin w3-white">
+  <!-- <div class="w3-card-4 w3-margin w3-white">
     <div class="w3-container">
       <h3><b>BLOG ENTRY</b></h3>
       <h5>Title description, <span class="w3-opacity">April 2, 2014</span></h5>
@@ -150,7 +192,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- END BLOG ENTRIES -->
 </div>
 
@@ -254,15 +296,48 @@ var date = $("#startARK").val();
   })
 }
 
-function makeGraph(value, date){
-  var ctx = document.getElementById("myChart");
+function whatifETH() {
+var amount = $("#amountETH").val();
+var date = $("#startETH").val();
+  //$("#results").html(amount+" "+date);
+  var url = "/whatifETH"
+  url += "?amount=" + amount;
+  url += "&date=" + encodeURIComponent(date);
+  $.ajax({
+    url: url,
+  }).done(function(data){
+    console.log(data);
+    $('#resultsETH').html(data);
+  })
+}
+
+function whatifDOGE() {
+var amount = $("#amountDOGE").val();
+var date = $("#startDOGE").val();
+  //$("#results").html(amount+" "+date);
+  var url = "/whatifDOGE"
+  url += "?amount=" + amount;
+  url += "&date=" + encodeURIComponent(date);
+  $.ajax({
+    url: url,
+  }).done(function(data){
+    console.log(data);
+    $('#resultsDOGE').html(data);
+  })
+}
+
+
+
+
+this.doGraph= function (value,date){
+    var ctx = document.getElementById("myChart");
   var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: date,
+      labels: ["1","2","3"],
       datasets: [{
         label: '# of Votes',
-        data: value,
+        data: [2,3,5],
         backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -293,6 +368,11 @@ function makeGraph(value, date){
     }
   });
 }
+
+
+
+
+
 </script>
 <!-- Footer -->
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
