@@ -70,21 +70,25 @@ module.exports = function(app)
 
   app.get('/whatif', function(req,res){
     var investment = req.query.amount;//req.param("amount");//
-    var date = req.query.date;
-    res.send(investment);
-    // cc.priceHistorical('BTC', ['USD'], date) // -> { BTC: { USD: 997, EUR: 948.17 } }
-    // .then(prices => {
-    //   //console.log(price)
-    //   var initVal = JSON.stringify(prices);
-    //
-    // });
-    // cc.priceHistorical('BTC', ['USD'], Date())
-    // .then(prices => {
-    //   //console.log(price)
-    //   var curVal = JSON.stringify(prices);
-    //
-    //   res.send((investment/initVal)*curVal);
-      console.log("AAAAAAAAA");
-    // });
+    var date = new Date(req.query.date +"T18:09:16Z");
+    var initVal;
+    var curVal;
+    cc.priceHistorical('BTC', ['USD'], date) // -> { BTC: { USD: 997, EUR: 948.17 } }
+    .then(prices => {
+      //console.log(prices.USD)
+      initVal = prices.USD;
+      console.log(initVal);
+      return cc.priceHistorical('BTC', ['USD'], new Date())
+    })
+    .then(prices => {
+      // console.log(prices)
+      curVal = prices.USD;
+      console.log(curVal);
+      
+      res.status(200).send(String((investment*curVal)/initVal));
+    }, err => {
+      console.log("err happened")
+      console.log(err)
+    });
   });
 }
