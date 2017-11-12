@@ -87,7 +87,7 @@ module.exports = function(app)
       curVal = prices.USD;
       console.log(curVal);
       
-      res.status(200).send(String((investment*curVal)/initVal));
+      res.status(200).send(((investment*curVal)/initVal).toFixed(2));
     }, err => {
       console.log("err happened")
       console.log(err)
@@ -112,7 +112,7 @@ module.exports = function(app)
       curVal = prices.USD;
       console.log(curVal);
       
-      res.status(200).send(String((investment*curVal)/initVal));
+      res.status(200).send(((investment*curVal)/initVal).toFixed(2));
     }, err => {
       console.log("err happened")
       console.log(err)
@@ -138,7 +138,7 @@ module.exports = function(app)
       curVal = prices.USD;
       console.log(curVal);
       
-      res.status(200).send(String((investment*curVal)/initVal));
+      res.status(200).send(((investment*curVal)/initVal).toFixed(2));
     }, err => {
       console.log("err happened")
       console.log(err)
@@ -164,7 +164,7 @@ module.exports = function(app)
       curVal = prices.USD;
       console.log(curVal);
       
-      res.status(200).send(String((investment*curVal)/initVal));
+      res.status(200).send(((investment*curVal)/initVal).toFixed(2));
     }, err => {
       console.log("err happened")
       console.log(err)
