@@ -29,7 +29,7 @@ app.engine('html', ejs.renderFile);
 
 
 
-var server     =    app.listen(3000,function(){
+var server     =    app.listen($PORT,function(){
 console.log("Express is running on port 3000");
 });
 

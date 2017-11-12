@@ -1,5 +1,5 @@
 {
-  "name": "Crypto",
+  "name": "victoria",
   "version": "1.0.0",
   "description": "Crypto Currency Daily Value webscrapper.",
   "main": "server.js",
@@ -14,7 +14,24 @@
     "request": "^2.81.0"
   },
   "devDependencies": {},
-  "scripts": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+"engine":{
+"node": "6.11.2"
+},
   "author": "Victoria",
-  "license": "WAT?"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vixjoy/Scrappy.git"
+  },
+  "keywords": [
+    "crytpo",
+    "currency"
+  ],
+  "bugs": {
+    "url": "https://github.com/vixjoy/Scrappy/issues"
+  },
+  "homepage": "https://github.com/vixjoy/Scrappy#readme"
 }
