@@ -28,8 +28,9 @@ module.exports = function(app)
       console.log("Today's Top 20 Currencies are:\n")
       var $ = cheerio.load(body);
       for(var i = 0; i < 20; i++){
-        name[i]= $('.coin-name').get(i).children[0].data;
-        value[i] = $('.coin-list__body__row__price__value').get(i).children[0].data;
+        // name[i]= $('.coin-name').get(i).children[0].data;
+        name[i]= $('.coin__name').eq(i).text();
+        value[i] = $('.coin__sign').eq(i).text();
         console.log(name[i] +" :\t"+value[i]+"\n");
       }
     }
@@ -52,7 +53,7 @@ module.exports = function(app)
 //       //        volumefrom: 35494.93,
 //       //        volumeto: 32333344.2 },
 //       //        ... ]
-    
+
 //     console.log(value, date);
 //     ejs.doGraph(value, date);
 
@@ -86,7 +87,7 @@ module.exports = function(app)
       // console.log(prices)
       curVal = prices.USD;
       console.log(curVal);
-      
+
       res.status(200).send(((investment*curVal)/initVal).toFixed(2));
     }, err => {
       console.log("err happened")
@@ -111,7 +112,7 @@ module.exports = function(app)
       // console.log(prices)
       curVal = prices.USD;
       console.log(curVal);
-      
+
       res.status(200).send(((investment*curVal)/initVal).toFixed(2));
     }, err => {
       console.log("err happened")
@@ -137,7 +138,7 @@ module.exports = function(app)
       // console.log(prices)
       curVal = prices.USD;
       console.log(curVal);
-      
+
       res.status(200).send(((investment*curVal)/initVal).toFixed(2));
     }, err => {
       console.log("err happened")
@@ -163,7 +164,7 @@ module.exports = function(app)
       // console.log(prices)
       curVal = prices.USD;
       console.log(curVal);
-      
+
       res.status(200).send(((investment*curVal)/initVal).toFixed(2));
     }, err => {
       console.log("err happened")

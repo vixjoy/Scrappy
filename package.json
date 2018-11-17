@@ -9,7 +9,9 @@
     "cryptocompare": "^0.2.0",
     "ejs": "~2.5.5",
     "express": "*",
+    "html": "^1.0.0",
     "moment": "^2.22.2",
+    "node-fetch": "^2.3.0",
     "path": "*",
     "request": "^2.88.0"
   },

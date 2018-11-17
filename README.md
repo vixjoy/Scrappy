@@ -15,11 +15,11 @@ Fork and clone the repository. Install dependencies with:
 
 Run the code with:
 
-	node app.js
+	node server.js
 
 ## Built With
 
-* [Node.js](https://nodejs.org/) - JavaScript runtime used to run the application 
+* [Node.js](https://nodejs.org/) - JavaScript runtime used to run the application
 * [Request](https://github.com/request/request) - Simple client used to make HTTP requests
 * [Cheerio](https://cheerio.js.org/) - Core jQuery implementation used to parse HTML and traverse/manipulate the resulting data structure
 * [Moment.js](https://momentjs.com/) - Library used to generate and operate on caching dates and times
