@@ -4,22 +4,22 @@
   "description": "Crypto Currency Daily Value webscrapper.",
   "main": "server.js",
   "dependencies": {
-    "chart.js": "^2.7.1",
+    "chart.js": "^2.7.3",
     "cheerio": "^1.0.0-rc.2",
     "cryptocompare": "^0.2.0",
     "ejs": "~2.5.5",
     "express": "*",
-    "moment": "^2.18.1",
+    "moment": "^2.22.2",
     "path": "*",
-    "request": "^2.81.0"
+    "request": "^2.88.0"
   },
   "devDependencies": {},
   "scripts": {
     "start": "node server.js"
   },
-"engine":{
-"node": "6.11.2"
-},
+  "engine": {
+    "node": "6.11.2"
+  },
   "author": "Victoria",
   "license": "MIT",
   "repository": {
